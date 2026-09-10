@@ -11,21 +11,9 @@
 ## 2026-09-10
 
 - Documentação operacional atualizada para refletir o estado observado do projeto SKIP Cockpit Fiscal `0.0.99`.
-- Registrado que a TASK-2-001 possui modelagem e interface parcialmente implementadas: cadastro PF/PJ, relacionamentos, vínculos versionados, históricos append-only e RLS por owner.
-- Mantida a TASK-2-001 aberta porque a alocação por transação ainda gravava somente `candidato` ou `bloqueado`, sem confirmação rastreável com operador, data e motivo.
-- Separadas as pendências por escopo: validação matemática, duplicidade, conflitos e fila pertencem à TASK-2-002; revisão completa e prova de acesso cruzado pertencem à TASK-2-003.
-- SPEC-2-002 mantida como não iniciada e dependente do fechamento da SPEC-2-001 e do gate G2.
-- Matheus autorizou explicitamente a implementação do plano da TASK-2-001 com a mensagem "Sim".
-- SKIP `0.0.100`: implementada revisão de cadastro candidato para confirmado/bloqueado, criando nova versão com motivo, evidência, operador e data.
-- SKIP `0.0.100`: implementada revisão da alocação por transação, com nova versão confirmada/bloqueada e consulta de todo o histórico na página de Casos.
-- Migração `0029` aplicada: `beneficiary_links` passou a ser append-only (`updateRule`/`deleteRule` bloqueados) e deixou de ser apagado em cascata pelo beneficiário.
-- Hook de integridade adicionado: decisões confirmadas/bloqueadas exigem motivo, evidência, operador e data; exclusão de beneficiário com vínculo, histórico ou relacionamento é rejeitada.
-- Pipeline SKIP completo passou: setup, análise estática, build, integrações e teste. O teste automatizado do projeto continua sendo placeholder; fluxo autenticado aguarda validação humana.
-- 2026-09-10 · Matheus Lohse · DEBUG task TASK-2-001: teste humano encontrou logs aparentemente ausentes, status pouco visível, criação manual sem confirmação, operador ausente na alocação candidata e modais novos sem X → causa raiz: logs não atualizavam em tempo real, edição comum não os criava, alocação rápida omitia auditoria e novos modais não herdaram o padrão visual → corrigido no SKIP `0.0.102`.
-- SKIP `0.0.102`: criação manual permite `candidato` ou `confirmado`; confirmação exige evidência e registra operador/data; status destacado nos cards e detalhes.
-- SKIP `0.0.102`: edição comum passa a gerar log; página de Logs atualiza por realtime/foco; falha de log deixa de ser silenciosa.
-- SKIP `0.0.102`: alocação candidata/desalocação registra operador, data, motivo e evidência; coluna `Estado/Tipo` renomeada para `Situação do lançamento`.
-- SKIP `0.0.102`: adicionados botões X superiores aos três modais que faltavam. Pipeline completo passou após tornar o hook compatível com o isolamento de callbacks do PocketBase JSVM.
-- 2026-09-10 · Matheus Lohse · segundo ciclo de teste: aprovado o fluxo de revisão/fechamento; solicitados ajustes de domínio PF/PJ, compactação visual, logs de relacionamento e preservação de lançamentos do sócio removido → corrigido no SKIP `0.0.103`.
-- Migração `0030` aplicada: caso tornou-se opcional para PF (apenas PJ exige caso); regras de acesso ajustadas para cadastros sem caso.
-- SKIP `0.0.103`: coluna `Situação do lançamento` compactada para ✓/✕ com tooltip; Direção exibe `C`/`D`; card sem status duplicado e sem versão; botão `Revisar` renomeado para `Confirmar`; modal explica Confirmar e Bloquear; logs explicativos de entrada/saída de sócio; lançamentos do sócio removido permanecem e continuam selecionáveis como vínculo anterior.
+- TASK-2-001 implementada em ciclos nas versões `0.0.100`, `0.0.102` e `0.0.103`: cadastro/revisão versionados, vínculos append-only, logs obrigatórios/realtime, status visível, confirmação manual, operador em alocações, modais com X, colunas compactas e preservação de lançamentos após saída de sócio.
+- Migração `0029` tornou `beneficiary_links` append-only e sem exclusão em cascata.
+- Migração `0030` tornou `case_id` opcional inicialmente para PF.
+- 2026-09-10 · Matheus Lohse · ciclos de teste humano: fluxo de revisão/fechamento aprovado; demais itens da versão `0.0.103` declarados funcionando, restando corrigir cadastro PJ sem caso e nomes dos sócios dentro do card.
+- SKIP `0.0.105`: migração `0031` adicionou `owner` obrigatório a beneficiários/históricos, aplicou RLS por proprietário e manteve `case_id` opcional para PF/PJ; formulário deixou de exigir caso; card passou a listar os nomes dos sócios/empresas vinculadas dentro do próprio bloco.
+- QA da versão `0.0.105` passou em setup, análise estática, build, integrações e teste; schema confirmou `owner` obrigatório e `case_id` opcional.
