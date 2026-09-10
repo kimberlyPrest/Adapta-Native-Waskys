@@ -21,3 +21,4 @@
 - Duplicidade é bloqueada no frontend, hook e índice; possíveis correspondências por nome não são fundidas automaticamente.
 - Fila cadastral permite resolução auditável e protege origem/owner; documento inválido/ausente só fecha após correção válida.
 - Teste placeholder substituído por 8 testes reais, todos aprovados. QA completo passou; `beneficiary_links` permaneceu append-only.
+- 2026-09-10 · Matheus Lohse · DEBUG task TASK-2-002: fluxos de preservação ainda exibiam “Excluir/Desligar” e a autoria Jarvis não aparecia → causa raiz: UI bifurcava exclusão definitiva e relações de usuários de sistema não expandiam na sessão humana → corrigido na SKIP `0.0.119` com Inativar/Inativo, autoria textual auditável e fixture sintética completa; QA passou, mas a prova visual final ficou bloqueada por 503 do Skip Cloud.
