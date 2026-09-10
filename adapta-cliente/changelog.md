@@ -16,4 +16,5 @@
 - Migração `0030` tornou `case_id` opcional inicialmente para PF.
 - 2026-09-10 · Matheus Lohse · ciclos de teste humano: fluxo de revisão/fechamento aprovado; demais itens da versão `0.0.103` declarados funcionando, restando corrigir cadastro PJ sem caso e nomes dos sócios dentro do card.
 - SKIP `0.0.105`: migração `0031` adicionou `owner` obrigatório a beneficiários/históricos, aplicou RLS por proprietário e manteve `case_id` opcional para PF/PJ; formulário deixou de exigir caso; card passou a listar os nomes dos sócios/empresas vinculadas dentro do próprio bloco.
-- QA da versão `0.0.105` passou em setup, análise estática, build, integrações e teste; schema confirmou `owner` obrigatório e `case_id` opcional.
+- SKIP `0.0.107`: confirmação no cadastro manual usa automaticamente a evidência `Cadastro manual realizado pelo operador`, sem campo adicional; QA completo passou e working tree ficou limpo.
+- Validação de documento já cadastrado foi confirmada como escopo da TASK-2-002 (normalização, validação e conflitos), sem antecipar sua implementação na TASK-2-001.
