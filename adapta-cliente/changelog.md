@@ -10,8 +10,14 @@
 
 ## 2026-09-10
 
-- TASK-2-001 implementada em ciclos nas versões `0.0.100` a `0.0.108`: cadastro/revisão versionados, vínculos, logs, cadastro PF/PJ sem caso, owner/RLS por carteira e imutabilidade por API.
-- 2026-09-10 · Matheus Lohse · Task TASK-2-001 concluída: teste humano aprovado; QA e schema comprovados no SKIP `0.0.108`.
-- TASK-2-002 analisada sem implementação: baseline aceita documentos apenas pelo tamanho, inclusive via criação API; não há dígitos verificadores, unicidade por owner, conflito formal ou fila de pendências.
-- Plano da TASK-2-002 delimitado: validação determinística frontend/backend, duplicidade por carteira, pendências auditáveis, bloqueio de confirmação, migração preservando históricos e fixtures executáveis.
-- Registros inválidos existentes serão bloqueados e encaminhados à fila, nunca apagados ou corrigidos silenciosamente.
+- TASK-2-001 concluída no SKIP `0.0.108`: teste humano, QA, owner/RLS e imutabilidade dos vínculos comprovados.
+- TASK-2-002 analisada: baseline validava apenas tamanho; sem dígitos verificadores, unicidade, conflitos ou fila.
+- Matheus autorizou a implementação da TASK-2-002: "Sim, pode implementar".
+- RED reproduzido: `111.111.111-11` e `11.111.111/0001-11` eram aceitos pela regra de tamanho.
+- SKIP `0.0.111`: implementado validador determinístico de CPF/CNPJ no frontend/backend, incluindo normalização, sequências repetidas e dígitos verificadores.
+- Migração `0033` adicionou `documento_chave`, `documento_valido`, índice único parcial por owner/documento e coleção `beneficiary_issues` com RLS.
+- Backfill preservou cadastros; inválidos/duplicados existentes foram bloqueados por nova versão e encaminhados à fila; ausentes permaneceram candidatos.
+- Cadastro confirmado exige documento válido; candidato inválido/ausente gera pendência. Vínculo confirmado também exige beneficiário com documento válido.
+- Duplicidade é bloqueada no frontend, hook e índice; possíveis correspondências por nome não são fundidas automaticamente.
+- Fila cadastral permite resolução auditável e protege origem/owner; documento inválido/ausente só fecha após correção válida.
+- Teste placeholder substituído por 8 testes reais, todos aprovados. QA completo passou; `beneficiary_links` permaneceu append-only.
