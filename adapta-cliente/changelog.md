@@ -10,13 +10,8 @@
 
 ## 2026-09-10
 
-- TASK-2-001 implementada em ciclos nas versões `0.0.100` a `0.0.107`: cadastro/revisão versionados, vínculos, logs obrigatórios/realtime, cadastro PF/PJ sem caso, owner/RLS por carteira, status, confirmação manual, operador em alocações, modais, colunas compactas, preservação de lançamentos e sócios no card.
-- Migração `0029` tornou `beneficiary_links` append-only e sem exclusão em cascata.
-- Migrações `0030`/`0031` tornaram caso opcional e adicionaram owner obrigatório aos beneficiários/históricos.
-- SKIP `0.0.107`: evidência automática `Cadastro manual realizado pelo operador`; QA passou.
-- Validação de documento duplicado delimitada para a TASK-2-002.
-- 2026-09-10 · Matheus Lohse · teste humano da TASK-2-001 aprovado na versão `0.0.107`.
-- Verificação independente de fechamento encontrou regressão: migração `0030` havia reativado `beneficiary_links.updateRule`; conclusão foi interrompida.
-- Matheus confirmou a regra: deve ser impossível alterar versões antigas, inclusive pela API.
-- SKIP `0.0.108`: migração `0032` restaurou a imutabilidade. QA completo passou; schema confirmou `updateRule` e `deleteRule` vazios e `cascadeDelete=false`.
-- 2026-09-10 · Matheus Lohse · Task TASK-2-001 concluída: fluxo humano aprovado; modelo, vínculos versionados, histórico, logs, owner/RLS e imutabilidade por API comprovados no SKIP `0.0.108`.
+- TASK-2-001 implementada em ciclos nas versões `0.0.100` a `0.0.108`: cadastro/revisão versionados, vínculos, logs, cadastro PF/PJ sem caso, owner/RLS por carteira e imutabilidade por API.
+- 2026-09-10 · Matheus Lohse · Task TASK-2-001 concluída: teste humano aprovado; QA e schema comprovados no SKIP `0.0.108`.
+- TASK-2-002 analisada sem implementação: baseline aceita documentos apenas pelo tamanho, inclusive via criação API; não há dígitos verificadores, unicidade por owner, conflito formal ou fila de pendências.
+- Plano da TASK-2-002 delimitado: validação determinística frontend/backend, duplicidade por carteira, pendências auditáveis, bloqueio de confirmação, migração preservando históricos e fixtures executáveis.
+- Registros inválidos existentes serão bloqueados e encaminhados à fila, nunca apagados ou corrigidos silenciosamente.
