@@ -3,11 +3,11 @@
 - task_id: TASK-2-001
 - champion: Matheus Lohse
 - spec: adapta-cliente/04_fase-atual/02-SPECs/spec-2-001-cadastro-beneficiarios.md
-- etapa: em_correcao
+- etapa: concluida
 - autorizacao_implementacao: confirmada em 2026-09-10T13:11:00-03:00 — "Sim"
 - teste_humano: aprovado em 2026-09-10T16:20:00-03:00 — "Aprovado"
-- verificacao_automatica: falhou no fechamento — SKIP 0.0.107; migrações 0030/0031 deixaram beneficiary_links.updateRule ativo, violando o requisito append-only; deleteRule permanece bloqueado
-- aprendizado: capturado:adapta-cliente/06_notas/aprendizado-continuo/AP-2026-09-10-1515-auditoria-nao-pode-ser-melhor-esforco.md
-- ultima_acao: verificação independente de fechamento encontrou regressão de imutabilidade no schema
-- proxima_acao: corrigir updateRule de beneficiary_links e reexecutar verificação completa
-- atualizado_em: 2026-09-10T16:24:00-03:00
+- verificacao_automatica: passou — SKIP 0.0.108; QA completo; migração 0032 aplicada; beneficiary_links com updateRule/deleteRule vazios e cascadeDelete=false
+- aprendizado: capturado:adapta-cliente/06_notas/aprendizado-continuo/AP-2026-09-10-1628-revalidar-regras-apos-migracoes.md
+- ultima_acao: TASK-2-001 concluída formalmente com aprovação humana e revalidação independente
+- proxima_acao: aguardar novo pedido para analisar a próxima task
+- atualizado_em: 2026-09-10T16:30:00-03:00
