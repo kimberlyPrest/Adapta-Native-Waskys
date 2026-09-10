@@ -21,3 +21,8 @@
 - Migração `0029` aplicada: `beneficiary_links` passou a ser append-only (`updateRule`/`deleteRule` bloqueados) e deixou de ser apagado em cascata pelo beneficiário.
 - Hook de integridade adicionado: decisões confirmadas/bloqueadas exigem motivo, evidência, operador e data; exclusão de beneficiário com vínculo, histórico ou relacionamento é rejeitada.
 - Pipeline SKIP completo passou: setup, análise estática, build, integrações e teste. O teste automatizado do projeto continua sendo placeholder; fluxo autenticado aguarda validação humana.
+- 2026-09-10 · Matheus Lohse · DEBUG task TASK-2-001: teste humano encontrou logs aparentemente ausentes, status pouco visível, criação manual sem confirmação, operador ausente na alocação candidata e modais novos sem X → causa raiz: logs não atualizavam em tempo real, edição comum não os criava, alocação rápida omitia auditoria e novos modais não herdaram o padrão visual → corrigido no SKIP `0.0.102`.
+- SKIP `0.0.102`: criação manual permite `candidato` ou `confirmado`; confirmação exige evidência e registra operador/data; status destacado nos cards e detalhes.
+- SKIP `0.0.102`: edição comum passa a gerar log; página de Logs atualiza por realtime/foco; falha de log deixa de ser silenciosa.
+- SKIP `0.0.102`: alocação candidata/desalocação registra operador, data, motivo e evidência; coluna `Estado/Tipo` renomeada para `Situação do lançamento`.
+- SKIP `0.0.102`: adicionados botões X superiores aos três modais que faltavam. Pipeline completo passou após tornar o hook compatível com o isolamento de callbacks do PocketBase JSVM.
