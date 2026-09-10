@@ -18,3 +18,5 @@
 - SKIP `0.0.105`: migração `0031` adicionou `owner` obrigatório a beneficiários/históricos, aplicou RLS por proprietário e manteve `case_id` opcional para PF/PJ; formulário deixou de exigir caso; card passou a listar os nomes dos sócios/empresas vinculadas dentro do próprio bloco.
 - SKIP `0.0.107`: confirmação no cadastro manual usa automaticamente a evidência `Cadastro manual realizado pelo operador`, sem campo adicional; QA completo passou e working tree ficou limpo.
 - Validação de documento já cadastrado foi confirmada como escopo da TASK-2-002 (normalização, validação e conflitos), sem antecipar sua implementação na TASK-2-001.
+- 2026-09-10 · Matheus Lohse · teste humano da TASK-2-001 aprovado na versão `0.0.107`.
+- Verificação independente de fechamento interrompeu a conclusão: a migração `0030` reativou `beneficiary_links.updateRule`, e a `0031` manteve a regra ativa; versões antigas poderiam ser alteradas por API, contrariando o requisito append-only. Task voltou para `em_correcao`; próxima task não iniciada.
