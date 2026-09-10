@@ -12,7 +12,12 @@
 
 - Documentação operacional atualizada para refletir o estado observado do projeto SKIP Cockpit Fiscal `0.0.99`.
 - Registrado que a TASK-2-001 possui modelagem e interface parcialmente implementadas: cadastro PF/PJ, relacionamentos, vínculos versionados, históricos append-only e RLS por owner.
-- Mantida a TASK-2-001 aberta porque a alocação por transação ainda grava somente `candidato` ou `bloqueado`, sem confirmação rastreável com operador, data e motivo.
+- Mantida a TASK-2-001 aberta porque a alocação por transação ainda gravava somente `candidato` ou `bloqueado`, sem confirmação rastreável com operador, data e motivo.
 - Separadas as pendências por escopo: validação matemática, duplicidade, conflitos e fila pertencem à TASK-2-002; revisão completa e prova de acesso cruzado pertencem à TASK-2-003.
 - SPEC-2-002 mantida como não iniciada e dependente do fechamento da SPEC-2-001 e do gate G2.
-- Nenhum código do produto foi alterado nesta atualização documental.
+- Matheus autorizou explicitamente a implementação do plano da TASK-2-001 com a mensagem "Sim".
+- SKIP `0.0.100`: implementada revisão de cadastro candidato para confirmado/bloqueado, criando nova versão com motivo, evidência, operador e data.
+- SKIP `0.0.100`: implementada revisão da alocação por transação, com nova versão confirmada/bloqueada e consulta de todo o histórico na página de Casos.
+- Migração `0029` aplicada: `beneficiary_links` passou a ser append-only (`updateRule`/`deleteRule` bloqueados) e deixou de ser apagado em cascata pelo beneficiário.
+- Hook de integridade adicionado: decisões confirmadas/bloqueadas exigem motivo, evidência, operador e data; exclusão de beneficiário com vínculo, histórico ou relacionamento é rejeitada.
+- Pipeline SKIP completo passou: setup, análise estática, build, integrações e teste. O teste automatizado do projeto continua sendo placeholder; fluxo autenticado aguarda validação humana.
