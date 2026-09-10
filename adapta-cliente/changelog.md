@@ -26,3 +26,6 @@
 - SKIP `0.0.102`: edição comum passa a gerar log; página de Logs atualiza por realtime/foco; falha de log deixa de ser silenciosa.
 - SKIP `0.0.102`: alocação candidata/desalocação registra operador, data, motivo e evidência; coluna `Estado/Tipo` renomeada para `Situação do lançamento`.
 - SKIP `0.0.102`: adicionados botões X superiores aos três modais que faltavam. Pipeline completo passou após tornar o hook compatível com o isolamento de callbacks do PocketBase JSVM.
+- 2026-09-10 · Matheus Lohse · segundo ciclo de teste: aprovado o fluxo de revisão/fechamento; solicitados ajustes de domínio PF/PJ, compactação visual, logs de relacionamento e preservação de lançamentos do sócio removido → corrigido no SKIP `0.0.103`.
+- Migração `0030` aplicada: caso tornou-se opcional para PF (apenas PJ exige caso); regras de acesso ajustadas para cadastros sem caso.
+- SKIP `0.0.103`: coluna `Situação do lançamento` compactada para ✓/✕ com tooltip; Direção exibe `C`/`D`; card sem status duplicado e sem versão; botão `Revisar` renomeado para `Confirmar`; modal explica Confirmar e Bloquear; logs explicativos de entrada/saída de sócio; lançamentos do sócio removido permanecem e continuam selecionáveis como vínculo anterior.
