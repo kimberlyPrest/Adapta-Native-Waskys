@@ -1,6 +1,6 @@
 # Fase 2 — Motor determinístico e preparação de eventos
 
-**Status:** planejada — avanço autorizado explicitamente pela consultora; checks documentais permanecem pendentes
+**Status:** em execução controlada — SPEC-2-001 parcialmente implementada; TASK-2-001 em análise de correção
 **Objetivo:** transformar as transações normalizadas da Fase 1 em uma matriz fiscal revisável, rastreável e bloqueável.
 
 ## Resultado da fase
@@ -22,6 +22,7 @@ Para uma competência piloto, o analista consegue revisar pagamentos candidatos,
 - Responsável tributário deve aprovar o rulebook e o golden set antes de dados reais.
 - Tabelas oficiais usadas devem registrar versão, vigência, fonte e data de consulta.
 - O avanço foi autorizado pela consultora apesar de `check-escopo` e `check-cliente` pendentes; isso não equivale à aprovação desses checks.
+- A SPEC-2-002 permanece bloqueada até o fechamento da SPEC-2-001 e a liberação do gate G2.
 
 ## Fora desta fase
 
@@ -36,7 +37,7 @@ Para uma competência piloto, o analista consegue revisar pagamentos candidatos,
 
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
-| TASK-2-001 | Modelar cadastro de beneficiários, vínculo e histórico | Engenheiro | SPEC-2-001 | CA-2-001, CA-2-003 | RED/GREEN da SPEC: criar PF/PJ, vínculo e nova versão do vínculo | migração/modelo, fixture e log de versão | Fase 1 disponível; G3 sem dados reais | ☐ Leva 1 |
+| TASK-2-001 | Modelar cadastro de beneficiários, vínculo e histórico | Engenheiro | SPEC-2-001 | CA-2-001, CA-2-003 | RED/GREEN da SPEC: criar PF/PJ, vínculo e nova versão do vínculo | migração/modelo, fixture e log de versão | Fase 1 disponível; G3 sem dados reais | ◐ Em análise — implementação parcial; correção aguardando autorização |
 | TASK-2-002 | Implementar normalização e validação de CPF/CNPJ com conflitos | Engenheiro | SPEC-2-001 | CA-2-001, CA-2-002 | TDD RED/GREEN: fixture válida, ausente, curta e conflitante | testes/fixtures e relatório de bloqueios | TASK-2-001 | ☐ Leva 2 |
 | TASK-2-003 | Implementar revisão de beneficiário e segregação por owner | Engenheiro | SPEC-2-001 | CA-2-003, CA-2-004 | TDD de regressão: alterar vínculo, consultar histórico e tentar acesso cruzado | auditoria, evidência de acesso negado e histórico | TASK-2-001, TASK-2-002 | ☐ Leva 3 |
 | TASK-2-004 | Criar modelo e editor de rulebook versionado | Responsável tributário + Engenheiro | SPEC-2-002 | CA-2-005, CA-2-006 | RED/GREEN: regra incompleta rejeitada; regra completa recebe versão | schema, tela/API e registro da versão | G2: responsável tributário identificado | ☐ Leva 1 |

@@ -7,3 +7,12 @@
 - Registrado que o handoff oficial permanece bloqueado por gates documentais e template público ausentes.
 - 04/09/2026: avanço para a Fase 2 autorizado explicitamente pela consultora; geradas 5 SPECs locais para motor determinístico, beneficiários, exceções, consolidação e rascunho R-4010/R-4020. Tasks ainda não decompostas e nenhum push/publicação realizado.
 - 04/09/2026: decompostas 16 tasks executáveis da Fase 2, sincronizadas na fase, nas 5 SPECs e na matriz de rastreabilidade. Produção/transmissão continuam fora do escopo.
+
+## 2026-09-10
+
+- Documentação operacional atualizada para refletir o estado observado do projeto SKIP Cockpit Fiscal `0.0.99`.
+- Registrado que a TASK-2-001 possui modelagem e interface parcialmente implementadas: cadastro PF/PJ, relacionamentos, vínculos versionados, históricos append-only e RLS por owner.
+- Mantida a TASK-2-001 aberta porque a alocação por transação ainda grava somente `candidato` ou `bloqueado`, sem confirmação rastreável com operador, data e motivo.
+- Separadas as pendências por escopo: validação matemática, duplicidade, conflitos e fila pertencem à TASK-2-002; revisão completa e prova de acesso cruzado pertencem à TASK-2-003.
+- SPEC-2-002 mantida como não iniciada e dependente do fechamento da SPEC-2-001 e do gate G2.
+- Nenhum código do produto foi alterado nesta atualização documental.
