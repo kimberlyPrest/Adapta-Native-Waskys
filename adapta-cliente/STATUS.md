@@ -1,40 +1,33 @@
 # Status da pasta do cliente
 
-**Status:** Fase 2 em execução controlada — SPEC-2-001 concluída e gate G2 liberado; TASK-2-004 elegível para análise
+**Status:** Fase 2 em execução controlada — TASK-2-004 implementada tecnicamente na SKIP 0.0.130, bloqueada para verificação final por indisponibilidade do Skip Cloud
 **Data:** 12/09/2026
 **Fase disponível:** Fase 2 — Motor determinístico e preparação de eventos
-**Progresso:** 3 de 16 tasks concluídas (18,75%); SPEC-2-001 com 3 de 3 tasks concluídas
+**Progresso:** 3 de 16 tasks concluídas (18,75%); TASK-2-004 permanece aberta
 
-## TASK-2-001 — concluída
+## TASK-2-001 a TASK-2-003 — concluídas
 
-- Versão validada: SKIP `0.0.108`.
-- Vínculos append-only preservados: update/delete bloqueados e sem cascade delete.
-
-## TASK-2-002 — concluída
-
-- Versão validada: SKIP `0.0.121`.
-- Teste humano aprovado; CPF/CNPJ, conflitos, fila, inativação e autoria auditável validados.
-
-## TASK-2-003 — concluída
-
-- Versão validada: SKIP `0.0.126`.
-- Teste humano aprovado por Matheus Lohse em 12/09/2026.
-- Revisão cadastral atômica, histórico, vínculos append-only e segregação cross-owner revalidados.
-- 14 testes, QA, migrações, schema e preview foram aprovados.
+- SPEC-2-001 tecnicamente concluída e aprovada.
+- Versões validadas: SKIP `0.0.108`, `0.0.121` e `0.0.126`.
 
 ## Gate G2 — liberado
 
 - Responsável tributário: Matheus Lohse.
-- Autoridade: Matheus fará as decisões e aprovações tributárias do rulebook e do golden set.
-- Apoio: dúvidas podem ser encaminhadas à consultoria externa; a aprovação registrada no sistema permanece de Matheus.
-- Não é necessário criar novo usuário: Matheus usará sua conta atual.
+- Consultoria externa atua como apoio para dúvidas, sem substituir sua aprovação.
 
-## Próxima ação elegível
+## TASK-2-004 — bloqueada para verificação final
 
-- TASK-2-004 pode ser analisada mediante novo pedido explícito.
-- Nenhuma task posterior foi iniciada automaticamente.
+- Versão atual: SKIP `0.0.130`.
+- Criadas coleções `rulebook_versions`, `rulebook_rules` e `rulebook_history` com RLS por owner.
+- Criada rota transacional para criar e editar somente Rascunhos.
+- Criada página Rulebook e navegação desktop/mobile.
+- Fonte, URL HTTPS, consulta, vigência, regras, campos obrigatórios e bloqueios são validados.
+- Prova parcial: rascunho incompleto retornou 400 sem resíduo; versão completa criou v1/revisão 1; edição preservou v1 e criou revisão 2; concorrência obsoleta retornou 400 sem novo histórico.
+- Falha de segurança encontrada: regras de escrita `""` eram públicas no PocketBase. Migração 0043 mudou create/update/delete para `null` (somente backend/superuser).
+- 21 testes e QA completo passaram na 0.0.130.
+- Verificação final do bloqueio e preview não foi concluída porque o Skip Cloud passou a responder HTTP 503.
 
-## Limitações
+## Próxima ação
 
-- Não há consulta à Receita, fusão automática, OCR ou alteração do Domínio.
-- A consultoria externa não será registrada como aprovadora enquanto não houver nova designação formal.
+- Quando o Cloud voltar, revalidar escrita direta negada, rota transacional, schema e editor; só então solicitar teste humano.
+- TASK-2-005 não foi iniciada.
