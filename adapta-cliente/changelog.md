@@ -26,3 +26,7 @@
 - 2026-09-10 · Matheus Lohse · Task TASK-2-002 concluída: SKIP `0.0.121`; teste humano aprovado; normalização/validação de CPF/CNPJ, conflitos, fila, índice único por owner, autoria auditável, 8 testes, QA, schema e preview revalidados.
 - 2026-09-10 · Matheus Lohse · TASK-2-003 analisada: revisão e históricos append-only já existem; faltam operação atômica para revisão cadastral, fixture/prova de dois owners e testes de acesso cruzado negado sem ampliar o escopo para o rulebook.
 - 2026-09-10 · Matheus Lohse · TASK-2-003 implementada na SKIP `0.0.126`: revisão atômica com controle de versão, histórico/log transacionais, fixture segura de segundo owner, leitura/alteração cross-owner negadas (404), exclusão direta bloqueada (400), vínculos append-only e 14 testes aprovados; aguarda teste humano.
+
+## 2026-09-12
+
+- 2026-09-12 · Matheus Lohse · Task TASK-2-003 concluída: SKIP `0.0.126`; teste humano aprovado; revisão atômica, histórico com evidência, concorrência sem resíduo, segregação cross-owner, inativação e 14 testes revalidados. SPEC-2-001 tecnicamente concluída com 3 de 3 tasks.
