@@ -1,6 +1,6 @@
 # Fase 2 — Motor determinístico e preparação de eventos
 
-**Status:** em execução controlada — TASK-2-001 e TASK-2-002 concluídas; SPEC-2-001 permanece aberta
+**Status:** em execução controlada — SPEC-2-001 tecnicamente concluída; SPEC-2-002 aguarda gate G2
 **Objetivo:** transformar as transações normalizadas da Fase 1 em uma matriz fiscal revisável, rastreável e bloqueável.
 
 ## Resultado da fase
@@ -22,7 +22,7 @@ Para uma competência piloto, o analista consegue revisar pagamentos candidatos,
 - Responsável tributário deve aprovar o rulebook e o golden set antes de dados reais.
 - Tabelas oficiais usadas devem registrar versão, vigência, fonte e data de consulta.
 - O avanço foi autorizado pela consultora apesar de `check-escopo` e `check-cliente` pendentes; isso não equivale à aprovação desses checks.
-- A SPEC-2-002 permanece bloqueada até o fechamento da SPEC-2-001 e a liberação do gate G2.
+- A SPEC-2-002 permanece bloqueada até a liberação do gate G2.
 
 ## Fora desta fase
 
@@ -39,7 +39,7 @@ Para uma competência piloto, o analista consegue revisar pagamentos candidatos,
 |---|---|---|---|---|---|---|---|---|
 | TASK-2-001 | Modelar cadastro de beneficiários, vínculo e histórico | Engenheiro | SPEC-2-001 | CA-2-001, CA-2-003 | RED/GREEN da SPEC: criar PF/PJ, vínculo e nova versão do vínculo | migração/modelo, fixture e log de versão | Fase 1 disponível; G3 sem dados reais | ☑ Concluída em 10/09/2026 — SKIP 0.0.108; teste humano aprovado; vínculos imutáveis confirmados no schema |
 | TASK-2-002 | Implementar normalização e validação de CPF/CNPJ com conflitos | Engenheiro | SPEC-2-001 | CA-2-001, CA-2-002 | TDD RED/GREEN: fixture válida, ausente, curta e conflitante | testes/fixtures e relatório de bloqueios | TASK-2-001 | ☑ Concluída em 10/09/2026 — SKIP 0.0.121; 8 testes, QA, schema, preview e teste humano aprovados |
-| TASK-2-003 | Implementar revisão de beneficiário e segregação por owner | Engenheiro | SPEC-2-001 | CA-2-003, CA-2-004 | TDD de regressão: alterar vínculo, consultar histórico e tentar acesso cruzado | auditoria, evidência de acesso negado e histórico | TASK-2-001, TASK-2-002 | ☐ Leva 3 |
+| TASK-2-003 | Implementar revisão de beneficiário e segregação por owner | Engenheiro | SPEC-2-001 | CA-2-003, CA-2-004 | TDD de regressão: alterar vínculo, consultar histórico e tentar acesso cruzado | auditoria, evidência de acesso negado e histórico | TASK-2-001, TASK-2-002 | ☑ Concluída em 12/09/2026 — SKIP 0.0.126; revisão atômica, 14 testes, cross-owner 404 e teste humano aprovados |
 | TASK-2-004 | Criar modelo e editor de rulebook versionado | Responsável tributário + Engenheiro | SPEC-2-002 | CA-2-005, CA-2-006 | RED/GREEN: regra incompleta rejeitada; regra completa recebe versão | schema, tela/API e registro da versão | G2: responsável tributário identificado | ☐ Leva 1 |
 | TASK-2-005 | Implementar golden set e validação de sobreposição de regras | Responsável tributário | SPEC-2-002 | CA-2-005, CA-2-008 | TDD GREEN: casos positivos, negativos, ambíguos e regra sobreposta | golden set versionado e relatório de execução | TASK-2-004 | ☐ Leva 2 |
 | TASK-2-006 | Implementar aprovação, retirada e seleção do rulebook por competência | Engenheiro + Responsável tributário | SPEC-2-002 | CA-2-006, CA-2-007 | Regressão: retirar v1, aprovar v2 e reprocessar competência histórica e nova | diff + logs + prova de seleção por vigência | TASK-2-004, TASK-2-005 | ☐ Leva 3 |
