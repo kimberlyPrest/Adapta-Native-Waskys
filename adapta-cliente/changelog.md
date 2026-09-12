@@ -11,24 +11,12 @@
 ## 2026-09-10
 
 - TASK-2-001 concluída no SKIP `0.0.108`: teste humano, QA, owner/RLS e imutabilidade dos vínculos comprovados.
-- TASK-2-002 analisada: baseline validava apenas tamanho; sem dígitos verificadores, unicidade, conflitos ou fila.
-- Matheus autorizou a implementação da TASK-2-002: "Sim, pode implementar".
-- RED reproduzido: `111.111.111-11` e `11.111.111/0001-11` eram aceitos pela regra de tamanho.
-- SKIP `0.0.111`: implementado validador determinístico de CPF/CNPJ no frontend/backend, incluindo normalização, sequências repetidas e dígitos verificadores.
-- Migração `0033` adicionou `documento_chave`, `documento_valido`, índice único parcial por owner/documento e coleção `beneficiary_issues` com RLS.
-- Backfill preservou cadastros; inválidos/duplicados existentes foram bloqueados por nova versão e encaminhados à fila; ausentes permaneceram candidatos.
-- Cadastro confirmado exige documento válido; candidato inválido/ausente gera pendência. Vínculo confirmado também exige beneficiário com documento válido.
-- Duplicidade é bloqueada no frontend, hook e índice; possíveis correspondências por nome não são fundidas automaticamente.
-- Fila cadastral permite resolução auditável e protege origem/owner; documento inválido/ausente só fecha após correção válida.
-- Teste placeholder substituído por 8 testes reais, todos aprovados. QA completo passou; `beneficiary_links` permaneceu append-only.
-- 2026-09-10 · Matheus Lohse · DEBUG task TASK-2-002: fluxos de preservação ainda exibiam “Excluir/Desligar” e a autoria Jarvis não aparecia → causa raiz: UI bifurcava exclusão definitiva e relações de usuários de sistema não expandiam na sessão humana → corrigido na SKIP `0.0.119` com Inativar/Inativo, autoria textual auditável e fixture sintética completa; QA passou, mas a prova visual final ficou bloqueada por 503 do Skip Cloud.
-- 2026-09-10 · Matheus Lohse · DEBUG task TASK-2-002: autoria ainda incorreta e acesso a inativos discreto → causa raiz: migração de autoria pendente estava corrompida e o botão não informava volume → corrigido na SKIP `0.0.121`; `jarvis@waskys.local` aparece como Jarvis (IA), botão recebeu ícone e contador por categoria; QA e fluxo real no preview passaram.
-- 2026-09-10 · Matheus Lohse · Task TASK-2-002 concluída: SKIP `0.0.121`; teste humano aprovado; normalização/validação de CPF/CNPJ, conflitos, fila, índice único por owner, autoria auditável, 8 testes, QA, schema e preview revalidados.
-- 2026-09-10 · Matheus Lohse · TASK-2-003 analisada: revisão e históricos append-only já existem; faltam operação atômica para revisão cadastral, fixture/prova de dois owners e testes de acesso cruzado negado sem ampliar o escopo para o rulebook.
-- 2026-09-10 · Matheus Lohse · TASK-2-003 implementada na SKIP `0.0.126`: revisão atômica com controle de versão, histórico/log transacionais, fixture segura de segundo owner, leitura/alteração cross-owner negadas (404), exclusão direta bloqueada (400), vínculos append-only e 14 testes aprovados; aguarda teste humano.
+- TASK-2-002 concluída na SKIP `0.0.121`: validação CPF/CNPJ, conflitos, fila, inativação e autoria auditável aprovados.
+- TASK-2-003 implementada na SKIP `0.0.126`: revisão atômica, histórico, segregação cross-owner, inativação e 14 testes aprovados.
 
 ## 2026-09-12
 
-- 2026-09-12 · Matheus Lohse · Task TASK-2-003 concluída: SKIP `0.0.126`; teste humano aprovado; revisão atômica, histórico com evidência, concorrência sem resíduo, segregação cross-owner, inativação e 14 testes revalidados. SPEC-2-001 tecnicamente concluída com 3 de 3 tasks.
-- 2026-09-12 · Matheus Lohse · Gate G2 liberado: Matheus Lohse designado responsável tributário e aprovador do rulebook/golden set; consultoria externa será usada como apoio para dúvidas, sem substituir sua aprovação. TASK-2-004 tornou-se elegível para análise, mas não foi iniciada.
-- 2026-09-12 · Matheus Lohse · TASK-2-004 analisada: baseline sem modelo/editor de rulebook; plano delimitado a versões em rascunho, fonte, vigência, eventos, naturezas, cenários, campos obrigatórios e bloqueios. Golden set, aprovação/retirada e seleção por competência permanecem nas TASK-2-005/006.
+- 2026-09-12 · Matheus Lohse · Task TASK-2-003 concluída: SKIP `0.0.126`; teste humano aprovado; SPEC-2-001 tecnicamente concluída com 3 de 3 tasks.
+- 2026-09-12 · Matheus Lohse · Gate G2 liberado: Matheus designado responsável tributário; consultoria externa como apoio, sem substituir sua aprovação.
+- 2026-09-12 · Matheus Lohse · TASK-2-004 analisada: plano limitado a modelo/editor de Rascunhos; golden set e aprovação/retirada permanecem nas TASK-2-005/006.
+- 2026-09-12 · Matheus Lohse · TASK-2-004 implementada tecnicamente na SKIP `0.0.130`: modelo, rota atômica, editor, navegação, histórico e 21 testes. Debug encontrou escrita direta pública causada por regras `""`; migração 0043 corrigiu para `null`. QA passou, mas prova final ficou bloqueada por 503 do Skip Cloud.
