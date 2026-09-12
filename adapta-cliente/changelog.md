@@ -30,3 +30,4 @@
 ## 2026-09-12
 
 - 2026-09-12 · Matheus Lohse · Task TASK-2-003 concluída: SKIP `0.0.126`; teste humano aprovado; revisão atômica, histórico com evidência, concorrência sem resíduo, segregação cross-owner, inativação e 14 testes revalidados. SPEC-2-001 tecnicamente concluída com 3 de 3 tasks.
+- 2026-09-12 · Matheus Lohse · Gate G2 liberado: Matheus Lohse designado responsável tributário e aprovador do rulebook/golden set; consultoria externa será usada como apoio para dúvidas, sem substituir sua aprovação. TASK-2-004 tornou-se elegível para análise, mas não foi iniciada.
