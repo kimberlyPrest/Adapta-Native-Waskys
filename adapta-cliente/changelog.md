@@ -20,7 +20,6 @@
 
 ## 2026-09-14
 
-- DEBUG TASK-2-004: migração 0044 reconciliou escrita direta para `null`; segurança, rota atômica, concorrência, histórico, 21 testes, QA e preview passaram na SKIP `0.0.131`.
-- 2026-09-14 · Matheus Lohse · TESTE HUMANO TASK-2-004 falhou: Enter era removido nos campos multilinha; erros não eram destacados nem repetidos junto ao botão; “Regras: 1” era ambíguo e fixture técnica aparecia como Matheus.
-- 2026-09-14 · Matheus Lohse · DEBUG TASK-2-004: normalização destrutiva, validação só no backend e autoria sem separar fixture técnica de ação humana foram corrigidas na SKIP `0.0.133`; 23 testes, QA e preview passaram.
-- 2026-09-14 · Matheus Lohse · Task TASK-2-004 concluída: SKIP `0.0.133`; teste humano aprovado; modelo/editor de Rascunhos, versão exata, validação de regra incompleta, RLS, escrita exclusiva do backend, atomicidade, concorrência, histórico, autoria e UX revalidados. Progresso da fase: 4/16 (25%); SPEC-2-002: 1/3 tasks.
+- TASK-2-004 concluída na SKIP `0.0.133` após teste humano; modelo/editor de Rascunhos, RLS, atomicidade, histórico, autoria e UX revalidados.
+- TASK-2-005 analisada: golden set ausente; sobreposição delimitada a Evento + Código da natureza normalizado, sem interpretar cenário textual.
+- 2026-09-14 · Matheus Lohse · TASK-2-005 implementada tecnicamente na SKIP `0.0.140`: golden set versionado, quatro tipos de caso, executor determinístico, conflito explícito sem escolha automática, relatório e painel no Rulebook. Debug corrigiu zero numérico obrigatório, escopo isolado do JSVM, JSON entregue como bytes/string numérica e fixture que contaminava a v1. Fixture final isolada na v2 executou 4/4; 34 testes, QA, RLS, 400/403/404 sem resíduo, autoria Jarvis e preview passaram; aguardando teste humano.
