@@ -5,3 +5,4 @@
 - 2026-09-10T20:16:00-03:00 · task TASK-2-002 · capturado · `AP-2026-09-10-2016-autoria-automacao.md`
 - 2026-09-10T22:35:00-03:00 · task TASK-2-003 · capturado · `AP-2026-09-10-2235-revisao-atomica-hooks.md`
 - 2026-09-12T12:53:47-03:00 · task TASK-2-004 · capturado · `AP-2026-09-12-1253-regras-rls-pocketbase.md`
+- 2026-09-14T11:25:55-03:00 · task TASK-2-005 · capturado · `AP-2026-09-14-1125-json-jsvm-golden-set.md`
