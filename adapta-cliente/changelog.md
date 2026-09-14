@@ -16,10 +16,10 @@
 
 - TASK-2-003 concluída: teste humano aprovado; SPEC-2-001 tecnicamente concluída.
 - Gate G2 liberado: Matheus designado responsável tributário.
-- TASK-2-004 analisada e implementada tecnicamente até a SKIP `0.0.130`; debug de RLS interrompido por 503.
+- TASK-2-004 concluída na SKIP `0.0.133` após teste humano.
 
 ## 2026-09-14
 
-- TASK-2-004 concluída na SKIP `0.0.133` após teste humano; modelo/editor de Rascunhos, RLS, atomicidade, histórico, autoria e UX revalidados.
-- TASK-2-005 analisada: golden set ausente; sobreposição delimitada a Evento + Código da natureza normalizado, sem interpretar cenário textual.
-- 2026-09-14 · Matheus Lohse · TASK-2-005 implementada tecnicamente na SKIP `0.0.140`: golden set versionado, quatro tipos de caso, executor determinístico, conflito explícito sem escolha automática, relatório e painel no Rulebook. Debug corrigiu zero numérico obrigatório, escopo isolado do JSVM, JSON entregue como bytes/string numérica e fixture que contaminava a v1. Fixture final isolada na v2 executou 4/4; 34 testes, QA, RLS, 400/403/404 sem resíduo, autoria Jarvis e preview passaram; aguardando teste humano.
+- TASK-2-005 implementada tecnicamente na SKIP `0.0.140`: golden set versionado, quatro tipos de caso, executor determinístico, conflito explícito, relatório e painel.
+- 2026-09-14 · Matheus Lohse · TESTE HUMANO TASK-2-005 falhou: contadores de revisão se misturavam; conflito não identificava as regras; falta de seções, explicação e lista recolhível; validação parecia exclusiva do golden set.
+- 2026-09-14 · Matheus Lohse · DEBUG TASK-2-005: causa raiz foi histórico do rulebook exibido no lugar do golden set e backend sem detalhes de conflito → corrigido na SKIP `0.0.141`: rótulos e históricos separados, conflito com regras detalhadas, abas de navegação, explicação do golden set, versões recolhíveis e botão “Validar regras desta versão”; 39 testes, QA e preview passaram; aguardando reteste humano.
