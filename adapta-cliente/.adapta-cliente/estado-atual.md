@@ -3,11 +3,11 @@
 - task_id: TASK-2-006
 - champion: Matheus Lohse
 - spec: adapta-cliente/04_fase-atual/02-SPECs/spec-2-002-rulebook-naturezas.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente — "Pode seguir" autorizou a análise da próxima task, não a implementação
+- etapa: implementando
+- autorizacao_implementacao: confirmada em 2026-09-14T16:58:00-03:00 — "Pode implementar o plano analisado da TASK-2-006."
 - teste_humano: pendente
-- verificacao_automatica: pendente — baseline SKIP 0.0.163 vigente; TASK-2-005 concluída; migrações 0048–0056 aplicadas; .skip.config.json possui alteração preexistente não relacionada e será preservada
+- verificacao_automatica: pendente — baseline SKIP 0.0.163 vigente; migrações 0048–0056 aplicadas; .skip.config.json preexistente será preservado
 - aprendizado: pendente
-- ultima_acao: TASK-2-006 analisada; recorte definido para aprovação/retirada atômicas, seleção determinística por competência e preservação de referências históricas
-- proxima_acao: aguardar autorização para implementar
-- atualizado_em: 2026-09-14T17:02:00-03:00
+- ultima_acao: autorização validada; iniciada implementação exclusiva da TASK-2-006
+- proxima_acao: implementar schema, rotas, UI e testes e executar QA completo
+- atualizado_em: 2026-09-14T16:59:00-03:00
