@@ -19,4 +19,8 @@
 - 2026-09-12 · Matheus Lohse · Task TASK-2-003 concluída: SKIP `0.0.126`; teste humano aprovado; SPEC-2-001 tecnicamente concluída com 3 de 3 tasks.
 - 2026-09-12 · Matheus Lohse · Gate G2 liberado: Matheus designado responsável tributário; consultoria externa como apoio, sem substituir sua aprovação.
 - 2026-09-12 · Matheus Lohse · TASK-2-004 analisada: plano limitado a modelo/editor de Rascunhos; golden set e aprovação/retirada permanecem nas TASK-2-005/006.
-- 2026-09-12 · Matheus Lohse · TASK-2-004 implementada tecnicamente na SKIP `0.0.130`: modelo, rota atômica, editor, navegação, histórico e 21 testes. Debug encontrou escrita direta pública causada por regras `""`; migração 0043 corrigiu para `null`. QA passou, mas prova final ficou bloqueada por 503 do Skip Cloud.
+- 2026-09-12 · Matheus Lohse · TASK-2-004 implementada tecnicamente na SKIP `0.0.130`: modelo, rota atômica, editor, navegação, histórico e 21 testes. Debug encontrou escrita direta pública causada por regras `""`; tentativa de correção ficou sem prova final por 503.
+
+## 2026-09-14
+
+- 2026-09-14 · Matheus Lohse · DEBUG task TASK-2-004: Cloud voltou, mas a migração 0043 não constava como aplicada e o schema seguia público → causa raiz foi divergência após o 503 → migração idempotente 0044 aplicada na SKIP `0.0.131`; schema `null`, RLS, escrita direta negada, rota atômica, concorrência, histórico, 21 testes, QA e preview revalidados; aguardando teste humano.
