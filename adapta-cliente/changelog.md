@@ -33,3 +33,4 @@
 ## 2026-09-15
 
 - 2026-09-15 · Matheus Lohse · DEBUG TASK-2-006: seleção por competência não explicava claramente que consulta e registra; versão Aprovada não oferecia fluxo para alteração legislativa → corrigido na SKIP `0.0.168`: texto operacional explícito e ação "Criar nova versão a partir desta". Rota atômica copia regras e última revisão do Golden Set para novo Rascunho, registra histórico/log e preserva integralmente o original. QA passou; origem não aprovada retornou 400 sem resíduo (versões 2→2). Aguardando teste humano.
+- 2026-09-15 · Matheus Lohse · DEBUG TASK-2-006: título alterado para "Consulta de Rulebook por Competência" na SKIP `0.0.169`; QA passou. DÚVIDA tributária registrada: exigir caso Ambíguo em toda revisão força duas regras sobrepostas no próprio Rulebook; decidir entre obrigatoriedade por versão ou teste sistêmico separado antes de alterar o gate.
