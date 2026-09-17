@@ -1,6 +1,6 @@
 # Fase 2 — Motor determinístico e preparação de eventos
 
-**Status:** em execução controlada — SPEC-2-001 concluída; TASK-2-004 e TASK-2-005 concluídas; SPEC-2-002 com 2 de 3 tasks concluídas
+**Status:** em execução controlada — SPEC-2-001 concluída; TASK-2-004 e TASK-2-005 concluídas; TASK-2-006 implementada tecnicamente na SKIP 0.0.178, aguardando teste humano
 **Objetivo:** transformar as transações normalizadas da Fase 1 em uma matriz fiscal revisável, rastreável e bloqueável.
 
 ## Resultado da fase
@@ -39,9 +39,9 @@ Para uma competência piloto, o analista consegue revisar pagamentos candidatos,
 | TASK-2-001 | Modelar cadastro de beneficiários, vínculo e histórico | Engenheiro | SPEC-2-001 | CA-2-001, CA-2-003 | RED/GREEN da SPEC: criar PF/PJ, vínculo e nova versão do vínculo | migração/modelo, fixture e log de versão | Fase 1 disponível; G3 sem dados reais | ☑ Concluída em 10/09/2026 — SKIP 0.0.108; teste humano aprovado; vínculos imutáveis confirmados no schema |
 | TASK-2-002 | Implementar normalização e validação de CPF/CNPJ com conflitos | Engenheiro | SPEC-2-001 | CA-2-001, CA-2-002 | TDD RED/GREEN: fixture válida, ausente, curta e conflitante | testes/fixtures e relatório de bloqueios | TASK-2-001 | ☑ Concluída em 10/09/2026 — SKIP 0.0.121; 8 testes, QA, schema, preview e teste humano aprovados |
 | TASK-2-003 | Implementar revisão de beneficiário e segregação por owner | Engenheiro | SPEC-2-001 | CA-2-003, CA-2-004 | TDD de regressão: alterar vínculo, consultar histórico e tentar acesso cruzado | auditoria, evidência de acesso negado e histórico | TASK-2-001, TASK-2-002 | ☑ Concluída em 12/09/2026 — SKIP 0.0.126; revisão atômica, 14 testes, cross-owner 404 e teste humano aprovados |
-| TASK-2-004 | Criar modelo e editor de rulebook versionado | Responsável tributário + Engenheiro | SPEC-2-002 | CA-2-005, CA-2-006 | RED/GREEN: regra incompleta rejeitada; regra completa recebe versão | schema, tela/API e registro da versão | G2 liberado: Matheus Lohse designado responsável tributário em 12/09/2026 | ☑ Concluída em 14/09/2026 — SKIP 0.0.133; modelo/editor de Rascunhos, rota atômica, RLS, histórico/autoria, 23 testes, QA, preview e teste humano aprovados |
+| TASK-2-004 | Criar modelo e editor de rulebook versionado | Responsável tributário + Engenheiro | SPEC-2-002 | CA-2-005, CA-2-006 | RED/GREEN: regra incompleta rejeitada; regra completa recebe versão | schema, tela/API e registro da versão | G2 liberado: responsável tributário identificado em 12/09/2026 | ☑ Concluída em 14/09/2026 — SKIP 0.0.133; modelo/editor de Rascunhos, rota atômica, RLS, histórico/autoria, 23 testes, QA, preview e teste humano aprovados |
 | TASK-2-005 | Implementar golden set e validação de sobreposição de regras | Responsável tributário | SPEC-2-002 | CA-2-005, CA-2-008 | TDD GREEN: casos positivos, negativos, ambíguos e regra sobreposta | golden set versionado e relatório de execução | TASK-2-004 | ☑ Concluída em 14/09/2026 — SKIP 0.0.163; golden set versionado, executor 4 resultados, sobreposição explícita, históricos auditáveis, regressões, QA e teste humano aprovados |
-| TASK-2-006 | Implementar aprovação, retirada e seleção do rulebook por competência | Engenheiro + Responsável tributário | SPEC-2-002 | CA-2-006, CA-2-007 | Regressão: retirar v1, aprovar v2 e reprocessar competência histórica e nova | diff + logs + prova de seleção por vigência | TASK-2-004, TASK-2-005 | ☐ Leva 3 |
+| TASK-2-006 | Implementar aprovação, retirada e seleção do rulebook por competência | Engenheiro + Responsável tributário | SPEC-2-002 | CA-2-006, CA-2-007 | Regressão: retirar v1, aprovar v2 e reprocessar competência histórica e nova | diff + logs + prova de seleção por vigência | TASK-2-004, TASK-2-005 | ◐ Implementada tecnicamente em 17/09/2026 — SKIP 0.0.178; P0 de rastreabilidade, QA e schema aprovados; aguardando teste humano |
 | TASK-2-007 | Implementar motor de sugestão explicável por regra e evidência | Engenheiro | SPEC-2-003 | CA-2-009 | item claro gera sugestão com regra, fonte e origem | resultado e log | TASK-2-001, TASK-2-002, TASK-2-006 | ☐ Leva 4 |
 | TASK-2-008 | Implementar fila de exceções com severidade, responsável e prazo | Engenheiro | SPEC-2-003 | CA-2-009, CA-2-010 | ambiguidade e falta de evidência entram na fila | captura e registro | TASK-2-007 | ☐ Leva 5 |
 | TASK-2-009 | Implementar decisão humana, justificativa e fallback sem IA | Analista fiscal + Engenheiro | SPEC-2-003 | CA-2-011, CA-2-012 | aprovar/rejeitar e executar com serviço indisponível | auditoria | TASK-2-008 | ☐ Leva 6 |
@@ -52,6 +52,16 @@ Para uma competência piloto, o analista consegue revisar pagamentos candidatos,
 | TASK-2-014 | Implementar validação de pré-condições e bloqueios do pacote | Engenheiro | SPEC-2-005 | CA-2-019 | fixture incompleta | relatório | TASK-2-013 | ☐ Leva 11 |
 | TASK-2-015 | Implementar exportação do pacote, checksum e reprodução | Engenheiro | SPEC-2-005 | CA-2-017, CA-2-020 | exportações reproduzíveis | pacote e checksum | TASK-2-014 | ☐ Leva 12 |
 | TASK-2-016 | Implementar revisão humana e aviso de não transmissão | Analista fiscal + Responsável tributário | SPEC-2-005 | CA-2-019, CA-2-021 | revisar, aprovar/devolver | checklist | TASK-2-015 | ☐ Leva 13 |
+
+## TASK-2-006 — estado técnico atual
+
+- Migração `0062_add_rulebook_traceability` aplicada na SKIP `0.0.178`.
+- Regras preservam identidade append-only e não são apagadas/recriadas ao salvar Rascunho.
+- Golden Set usa IDs canônicos e snapshots de Evento/Natureza; execuções preservam snapshots das regras avaliadas.
+- Cópia de versão remapeia catálogos, regras e casos para novos IDs e preserva a origem.
+- Snapshots de aprovação/retirada incluem regras atuais e catálogos identificados.
+- QA oficial (setup, análise estática, build, integrações e testes), schema, preview e logs foram revalidados.
+- **Gate atual:** aguardando teste humano de Matheus; P1/P2 da auditoria permanecem fora desta entrega.
 
 ## Evidência mínima de encerramento
 
