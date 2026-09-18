@@ -1,3 +1,18 @@
+# Changelog
+
+## 2026-09-18
+
+- 2026-09-18 · Matheus Lohse · TESTE HUMANO TASK-2-006 falhou (feedback de UX do ciclo, 5 pontos): motivo exigido na criação de catálogo; botões Editar/Inativar visíveis e inúteis em versões somente leitura; campo redundante "Nome da natureza" no editor; histórico do Rulebook mostrava "múltiplas alterações" ao criar Evento/Natureza; contadores de catálogo só atualizavam após recarregar a página → corrigido na SKIP `0.0.180`: motivo obrigatório somente na edição (criação registra "Cadastro inicial — a informação ainda não existia."), botões ocultos em versões Aprovadas/Retiradas, nome da natureza derivado do catálogo (campo removido do editor), histórico do Rulebook exibindo o resumo real do backend com diff fiel por `regra_id` e recarga de histórico/revisão/contadores ao alterar catálogo sem sair da aba. Higiene: remoção dos arquivos de migração duplicados nunca aplicados (0008, 0017, 0037, 0043) após erro de reprocessamento da plataforma; migrações aplicadas permanecem 0001–0062. QA completo passou; aguardando reteste humano.
+
+## 2026-09-17
+
+- 2026-09-17 · Matheus Lohse · TASK-2-006 P0 implementada na SKIP `0.0.178`; migração `0062_add_rulebook_traceability` aplicada.
+- Regras agora preservam identidade append-only (`regra_id`, `revisao_regra`, `atual`, `origem_regra_id`) e o salvamento de Rascunho não exclui/recria registros históricos.
+- Casos e execuções do Golden Set passaram a usar IDs canônicos de Evento/Natureza, snapshots da versão e rastreabilidade das regras avaliadas.
+- Cópia de versão remapeia catálogos, regras e casos para novos IDs; aprovação/retirada registra snapshots completos das regras atuais e catálogos.
+- Schema, setup, análise estática, build, integrações e testes da SKIP passaram; preview carregou e logs de hooks ficaram sem erros.
+- Estado: aguardando teste humano de Matheus. P1/P2 da auditoria permanecem fora desta entrega.
+
 ## 2026-08-27
 
 - Criada pasta provisória do cliente.
@@ -40,12 +55,3 @@
 
 - 2026-09-16 · Matheus Lohse · DEBUG TASK-2-006: erros de inativar/criar/editar nos catálogos corrigidos na SKIP `0.0.174`; causa nos logs: spread de objeto não suportado no JSVM e bool `ativo` obrigatório rejeitando `false`. QA completo passou; migração `0059` aplicada.
 - 2026-09-16 · Matheus Lohse · DEBUG TASK-2-006: inativar Natureza global alterava retroativamente versões históricas → corrigido na SKIP `0.0.175`; migração `0060` isolou catálogos e históricos por `rulebook_version_id`, cópia cria IDs próprios e versões Aprovadas/Retiradas são somente leitura. QA passou; aguardando teste humano.
-
-## 2026-09-17
-
-- 2026-09-17 · Matheus Lohse · TASK-2-006 P0 implementada na SKIP `0.0.178`; migração `0062_add_rulebook_traceability` aplicada.
-- Regras agora preservam identidade append-only (`regra_id`, `revisao_regra`, `atual`, `origem_regra_id`) e o salvamento de Rascunho não exclui/recria registros históricos.
-- Casos e execuções do Golden Set passaram a usar IDs canônicos de Evento/Natureza, snapshots da versão e rastreabilidade das regras avaliadas.
-- Cópia de versão remapeia catálogos, regras e casos para novos IDs; aprovação/retirada registra snapshots completos das regras atuais e catálogos.
-- Schema, setup, análise estática, build, integrações e testes da SKIP passaram; preview carregou e logs de hooks ficaram sem erros.
-- Estado: aguardando teste humano de Matheus. P1/P2 da auditoria permanecem fora desta entrega.
