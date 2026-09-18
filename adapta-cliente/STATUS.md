@@ -1,9 +1,9 @@
 # Status da pasta do cliente
 
-**Status:** Fase 2 em execução controlada — TASK-2-006 reaberta com feedback de UX e atendida na SKIP `0.0.181`; aguardando novo teste humano  
+**Status:** Fase 2 em execução controlada — TASK-2-006 concluída; início da TASK-2-007  
 **Data:** 18/09/2026  
 **Fase disponível:** Fase 2 — Motor determinístico e preparação de eventos  
-**Progresso:** 6 de 16 tasks formalmente concluídas (37,5%); TASK-2-006 reaberta para ajuste de UX; SPEC-2-002 tecnicamente concluída (3/3 tasks)
+**Progresso:** 6 de 16 tasks formalmente concluídas (37,5%); SPEC-2-001 e SPEC-2-002 concluídas
 
 ## Tasks concluídas
 
@@ -12,9 +12,9 @@
 - TASK-2-003 — SKIP `0.0.126`.
 - TASK-2-004 — SKIP `0.0.133`.
 - TASK-2-005 — SKIP `0.0.163`; teste humano aprovado em 14/09/2026.
-- TASK-2-006 — SKIP `0.0.180`; teste humano aprovado em 18/09/2026 ("Teste aprovado podemos continuar"); reaberta no mesmo dia com novo feedback de UX.
+- TASK-2-006 — SKIP `0.0.182`; teste humano aprovado em 18/09/2026 ("Pode encerrar e começar a próxima").
 
-## TASK-2-006 — ciclo do Rulebook
+## TASK-2-006 — ciclo do Rulebook (concluída)
 
 ### Rastreabilidade P0 (SKIP 0.0.178)
 
@@ -25,23 +25,22 @@
 ### Ajustes de UX do ciclo (SKIP 0.0.180, feedback de 18/09 manhã)
 
 1. Motivo obrigatório somente ao editar; na criação, o histórico registra "Cadastro inicial — a informação ainda não existia." (backend e UI).
-2. Botões Editar e Inativar/Reativar não são mais exibidos em versões Aprovadas/Retiradas (antes ficavam desabilitados).
-3. Campo "Nome da natureza" removido do editor de regras; o nome passa a vir do cadastro da Natureza (`natureza_nome` segue gravado no banco a partir do catálogo).
-4. Histórico do Rulebook passou a exibir o resumo real gravado pelo backend (`alteracoes`), com diff fiel por `regra_id`; alteração de catálogo registra exatamente "Evento/Natureza <código> <ação>".
-5. Inativar/Reativar/Editar catálogo atualiza histórico, revisão e contadores da versão sem exigir recarregar a página.
+2. Botões Editar e Inativar/Reativar não são mais exibidos em versões Aprovadas/Retiradas.
+3. Campo "Nome da natureza" removido do editor de regras; o nome vem do cadastro da Natureza.
+4. Histórico do Rulebook exibe o resumo real do backend com diff fiel por `regra_id`.
+5. Inativar/Reativar/Editar catálogo atualiza histórico, revisão e contadores sem recarregar a página.
 - Higiene: remoção dos arquivos de migração duplicados nunca aplicados (0008, 0017, 0037, 0043); migrações aplicadas permanecem 0001–0062.
 
-### Ajustes de UX da navegação (SKIP 0.0.181, feedback de 18/09 tarde)
+### Ajustes de navegação e motivo (SKIP 0.0.181/0.0.182, feedback de 18/09 tarde)
 
-1. Ao trocar de versão na lista lateral, a lista NÃO colapsa mais e a tela permanece na aba selecionada (antes saltava para "Regras da versão" e recolhia a lista).
-2. Cadastro separado das regras: nova aba "Cadastro da versão" com nome, fonte oficial, vigência e motivo, com botão "Salvar cadastro"; a aba "Regras da versão" contém apenas as regras, com botão "Salvar rascunho". A validação de erros passou a ser por aba (cada salvar valida só o que está visível).
-3. Nome da versão acompanha o número nos títulos: "Ciclo da versão v4 — <nome>", "Cadastro da versão v4 — <nome>" e "Regras da versão v4 — <nome>".
-- "Nova versão" abre direto na aba Cadastro.
+1. Ao trocar de versão, a lista lateral NÃO colapsa e a aba atual permanece selecionada (aprovação/retirada/clonagem também preservam).
+2. Cadastro separado das regras: aba própria "Cadastro da versão" (nome, fonte, vigência, motivo; botão "Salvar cadastro") e aba "Regras da versão" só com regras ("Salvar rascunho"); validação por aba. "Nova versão" abre no Cadastro.
+3. Nome da versão acompanha o número nos títulos: "Ciclo/Cadastro/Regras da versão v<n> — <nome>".
+4. Campo "Motivo da alteração" também na aba "Regras da versão", sincronizado com o Cadastro (0.0.182).
 
-**Estado do gate:** TASK-2-006 permanece aberta até o novo teste humano de Matheus na `0.0.181`.
+**Encerramento:** teste humano da `0.0.182` aprovado em 18/09/2026; QA completo aprovado; SPEC-2-002 concluída (3/3 tasks).
 
 ## Próxima ação
 
-- Matheus deve revalidar os 3 pontos na SKIP `0.0.181`.
-- Se aprovado, revalidar evidências e encerrar formalmente TASK-2-006.
+- Início da TASK-2-007: análise da SPEC correspondente, plano submetido ao Matheus e implementação após autorização.
 - P1/P2 da auditoria de rastreabilidade (preflight de dependências, concorrência de catálogo, motivo da seleção por competência e ajuste de vigência) permanecem como backlog.
