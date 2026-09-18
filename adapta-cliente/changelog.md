@@ -2,6 +2,7 @@
 
 ## 2026-09-18
 
+- 2026-09-18 · Matheus Lohse · TASK-2-006 concluída: teste humano da SKIP `0.0.180` aprovado ("Teste aprovado podemos continuar"). Ciclo do Rulebook completo: catálogos versionados com rastreabilidade append-only, Golden Set com IDs canônicos, aprovação/retirada/seleção por competência e UX validada. SPEC-2-002 tecnicamente concluída (3/3 tasks). Fase 2 em 6/16 (37,5%).
 - 2026-09-18 · Matheus Lohse · TESTE HUMANO TASK-2-006 falhou (feedback de UX do ciclo, 5 pontos): motivo exigido na criação de catálogo; botões Editar/Inativar visíveis e inúteis em versões somente leitura; campo redundante "Nome da natureza" no editor; histórico do Rulebook mostrava "múltiplas alterações" ao criar Evento/Natureza; contadores de catálogo só atualizavam após recarregar a página → corrigido na SKIP `0.0.180`: motivo obrigatório somente na edição (criação registra "Cadastro inicial — a informação ainda não existia."), botões ocultos em versões Aprovadas/Retiradas, nome da natureza derivado do catálogo (campo removido do editor), histórico do Rulebook exibindo o resumo real do backend com diff fiel por `regra_id` e recarga de histórico/revisão/contadores ao alterar catálogo sem sair da aba. Higiene: remoção dos arquivos de migração duplicados nunca aplicados (0008, 0017, 0037, 0043) após erro de reprocessamento da plataforma; migrações aplicadas permanecem 0001–0062. QA completo passou; aguardando reteste humano.
 
 ## 2026-09-17
