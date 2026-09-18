@@ -2,11 +2,12 @@
 
 - task_id: TASK-2-007
 - champion: Matheus Lohse
-- spec: a definir — análise da SPEC da próxima task da Fase 2 em andamento
-- etapa: em_analise
-- autorizacao_implementacao: pendente — plano será submetido ao Matheus antes de implementar
-- teste_humano: n/a
-- verificacao_automatica: n/a
-- ultima_acao: TASK-2-006 concluída definitivamente — teste humano da SKIP `0.0.182` aprovado ("Pode encerrar e começar a próxima"); QA completo e docs sincronizadas; SPEC-2-002 concluída (3/3)
-- proxima_acao: analisar a SPEC da TASK-2-007, apresentar plano e aguardar autorização do Matheus para implementar
+- spec: adapta-cliente/04_fase-atual/02-SPECs/spec-2-003-classificacao-excecoes.md
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada em 2026-09-18 ("Autorização")
+- teste_humano: pendente — validar a SKIP `0.0.183` (motor de sugestão explicável)
+- verificacao_automatica: aprovada — SKIP `0.0.183`; setup, análise estática, build, integrações e testes passaram; migração `0063` aplicada
+- aprendizado: registrado — reuso da semântica determinística do executor do Golden Set (casamento por Evento + campos presentes); IA permanece desligada
+- ultima_acao: TASK-2-007 implementada na SKIP `0.0.183` — coleção `transaction_suggestions` (RLS owner-only, escrita só via rota), rota transacional `/backend/v1/suggestions/evaluate` (rulebook Aprovado vigente por competência; sugestão com regra/fonte/origem/evidência ou bloqueio por ambiguidade/fora do rulebook/evidência insuficiente), UI "Sugestões" e 9 testes estáticos
+- proxima_acao: teste humano de Matheus na SKIP `0.0.183`; se aprovado, encerrar TASK-2-007 e seguir para TASK-2-008 (fila de exceções)
 - atualizado_em: 2026-09-18
