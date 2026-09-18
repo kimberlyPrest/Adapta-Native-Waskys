@@ -1,13 +1,12 @@
 # Estado atual — Adapta Cliente
 
-- task_id: TASK-2-006
+- task_id: TASK-2-007
 - champion: Matheus Lohse
-- spec: adapta-cliente/04_fase-atual/02-SPECs/spec-2-002-rulebook-naturezas.md
-- etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada em 2026-09-16T17:06:00-03:00 — "Autorizo implementar os ajustes de rastreabilidade propostos na TASK-2-006."
-- teste_humano: pendente — revalidar a SKIP `0.0.182` após o ajuste do campo de motivo na aba Regras
-- verificacao_automatica: aprovada — SKIP `0.0.182`; setup, análise estática, build, integrações e testes passaram
-- aprendizado: registrado — lições de JSVM (spread, bool required, escopo de helpers), gravação/verificação byte a byte de hooks e backfill sem inventar evidência
-- ultima_acao: campo "Motivo da alteração" replicado na aba "Regras da versão" (SKIP `0.0.182`), sincronizado com a aba Cadastro e validado por aba
-- proxima_acao: novo teste humano de Matheus na SKIP `0.0.182`; se aprovado, encerrar TASK-2-006
+- spec: a definir — análise da SPEC da próxima task da Fase 2 em andamento
+- etapa: em_analise
+- autorizacao_implementacao: pendente — plano será submetido ao Matheus antes de implementar
+- teste_humano: n/a
+- verificacao_automatica: n/a
+- ultima_acao: TASK-2-006 concluída definitivamente — teste humano da SKIP `0.0.182` aprovado ("Pode encerrar e começar a próxima"); QA completo e docs sincronizadas; SPEC-2-002 concluída (3/3)
+- proxima_acao: analisar a SPEC da TASK-2-007, apresentar plano e aguardar autorização do Matheus para implementar
 - atualizado_em: 2026-09-18
